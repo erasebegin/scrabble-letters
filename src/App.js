@@ -27,21 +27,15 @@ function App() {
 
   const generateRandom = () => {
     let rand = Math.floor(Math.random() * letterArr.length);
-    let prevRand;
-    if (rand !== prevRand) {
-      prevRand = rand;
-    } else {
-      rand = Math.floor(Math.random() * letterArr.length);
-    }
 
     const tempArr = letterArr
-    tempArr.splice(rand - 1, 1)
-
-    setGeneratedLetter(letterArr[rand])
+    console.log("letter:", tempArr[rand])
+    setGeneratedLetter(tempArr[rand])
+    tempArr.splice(rand, 1)
     setLetterArr(tempArr)
 
     console.log(tempArr)
-    console.log("color is:", currentColor)
+    
   };
 
   if (letterArr.length > 0) {
