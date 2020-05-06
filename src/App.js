@@ -67,17 +67,19 @@ const MainContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: 'Patrick Hand', cursive;
   button {
       background-color: ${props => props.currentColor};
-      font-size: 3rem;
+      font-size: 4rem;
       padding: 2em;
-      min-width: 30%;
-      min-height: 30%;
+      min-width: 30vw;
+      min-height: 30vh;
       transition: 200ms;
       border: none;
       border-radius: 10px;
       transform: initial;
       box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+      font-family: 'Patrick Hand', cursive;
 
       &:hover {
         transform: translate(5px,5px);
@@ -86,7 +88,13 @@ const MainContainer = styled.div`
       }
     }
   h1 {
-    text-shadow: 0px 0px 10px white;
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+  }
+
+  @media(max-width: 768px) {
+    button { 
+      min-width: 90%;
+    }
   }
 `
 
