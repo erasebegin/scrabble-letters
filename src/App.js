@@ -68,8 +68,12 @@ const MainContainer = styled.div`
   justify-content: center;
   height: 100vh;
   font-family: 'Patrick Hand', cursive;
+  &:focus {
+    outline: none;
+  }
   button {
       background-color: ${props => props.currentColor};
+      color: rgb(10,0,10);
       font-size: 4rem;
       padding: 2em;
       min-width: 30vw;
