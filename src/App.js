@@ -4,7 +4,7 @@ import randomColor from 'randomcolor';
 
 function App() {
 
-  const [generatedLetter, setGeneratedLetter] = useState('🐱‍🏍')
+  const [generatedLetter, setGeneratedLetter] = useState('🤩')
 
   const [currentColor, setCurrentColor] = useState('')
 
@@ -86,9 +86,16 @@ const MainContainer = styled.div`
         transition: 200ms;
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
       }
+
+      &:focus {
+        outline: none;
+      }
     }
   h1 {
     text-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+    &:focus {
+      outline: none;
+    }
   }
 
   @media(max-width: 768px) {
