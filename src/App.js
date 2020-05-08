@@ -23,7 +23,7 @@ function App() {
     '✨', '✨'
   ])
 
-  useEffect(() => { setCurrentColor(randomColor()) }, [generatedLetter])
+  useEffect(()=>{setCurrentColor(randomColor())},[])
 
   const generateRandom = () => {
     let rand = Math.floor(Math.random() * letterArr.length);
@@ -33,6 +33,7 @@ function App() {
     setGeneratedLetter(tempArr[rand])
     tempArr.splice(rand, 1)
     setLetterArr(tempArr)
+    setCurrentColor(randomColor())
 
     console.log(tempArr)
     
@@ -44,6 +45,10 @@ function App() {
         <button onClick={generateRandom}>
           <h1>{generatedLetter}</h1>
         </button>
+        <div className="count-container">
+          <p>REMAINING:</p>
+          <p className="count">{letterArr.length}</p>
+        </div>
       </MainContainer>
     );
   } else {
@@ -58,9 +63,10 @@ function App() {
 
 const MainContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   font-family: 'Patrick Hand', cursive;
   &:focus {
     outline: none;
@@ -69,9 +75,8 @@ const MainContainer = styled.div`
       background-color: ${props => props.currentColor};
       color: rgb(10,0,10);
       font-size: 4rem;
-      padding: 2em;
-      min-width: 30vw;
-      min-height: 30vh;
+      width: 30vw;
+      height: 40vh;
       transition: 200ms;
       border: none;
       border-radius: 10px;
@@ -94,6 +99,23 @@ const MainContainer = styled.div`
     &:focus {
       outline: none;
     }
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  .count-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+  }
+
+  .count {
+    font-size: 3rem;
+    font-weight: bold;
   }
 
   @media(max-width: 768px) {
